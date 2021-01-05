@@ -63,8 +63,6 @@ class NoteCell: UICollectionViewCell {
             titleCellLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
             titleCellLabel.trailingAnchor.constraint(equalTo: iconImageView.leadingAnchor, constant: -15),
             titleCellLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
-            
-            
         ])
     }
 }
