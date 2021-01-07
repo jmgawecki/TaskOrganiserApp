@@ -43,9 +43,9 @@ class PrioritiesVC: UIViewController {
     //MARK: - @objc Functions
     
     @objc func addNoteButtonTapped() {
-        let addTaskVC = AddPriorityTaskVC()
-        addTaskVC.delegate = self
-        let navbar = UINavigationController(rootViewController: addTaskVC)
+        let addTaskVC       = AddPriorityTaskVC()
+        addTaskVC.delegate  = self
+        let navbar          = UINavigationController(rootViewController: addTaskVC)
         present(navbar, animated: true)
     }
     

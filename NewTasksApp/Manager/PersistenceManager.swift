@@ -21,8 +21,8 @@ enum FromTo: String {
 /// PersistenceManager.saveNotes
 /// PersistenceManager.moveNotes
 enum KeyObjects: String {
-    case priorities = "priorities"
-    case secondaries = "secondaries"
+    case priorities     = "priorities"
+    case secondaries    = "secondaries"
 }
 
 
@@ -72,7 +72,7 @@ enum PersistenceManager {
             }
             do {
                 let decoder = JSONDecoder()
-                let notes = try decoder.decode([Note].self, from: noteData)
+                let notes   = try decoder.decode([Note].self, from: noteData)
                 completed(.success(notes))
             } catch {
                 print("error in retreiveNotes PersistenceManager")
@@ -86,7 +86,7 @@ enum PersistenceManager {
             }
             do {
                 let decoder = JSONDecoder()
-                let notes = try decoder.decode([Note].self, from: noteData)
+                let notes   = try decoder.decode([Note].self, from: noteData)
                 completed(.success(notes))
             } catch {
                 completed(.failure(.unableToNotes))
@@ -105,7 +105,7 @@ enum PersistenceManager {
         case .priorities:
             do {
                 let encoder = JSONEncoder()
-                let notes = try encoder.encode(notes)
+                let notes   = try encoder.encode(notes)
                 defaults.set(notes, forKey: task.rawValue)
             } catch {
                 return .unableToNotes
@@ -113,7 +113,7 @@ enum PersistenceManager {
         case .secondaries:
             do {
                 let encoder = JSONEncoder()
-                let notes = try encoder.encode(notes)
+                let notes   = try encoder.encode(notes)
                 defaults.set(notes, forKey: task.rawValue)
                 return nil
             } catch {

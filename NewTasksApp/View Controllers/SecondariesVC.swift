@@ -42,9 +42,9 @@ class SecondariesVC: UIViewController {
     //MARK: - @objc Functions
     
     @objc func addNoteButtonTapped() {
-        let addTaskB = AddSecondaryTaskVC()
-        addTaskB.delegate = self
-        let navbar = UINavigationController(rootViewController: addTaskB)
+        let addTaskB        = AddSecondaryTaskVC()
+        addTaskB.delegate   = self
+        let navbar          = UINavigationController(rootViewController: addTaskB)
         present(navbar, animated: true)
     }
     

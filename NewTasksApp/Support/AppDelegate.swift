@@ -22,10 +22,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         if hasAlreadyLaunched {
         } else {
             UserDefaults.standard.set(true, forKey: "hasAlreadyLaunched")
-            let note: Note = Note(title: WelcomeMessages.PrioritiesTitle, note: WelcomeMessages.PrioritiesBody, noteId: UUID().uuidString)
-            let note2: Note = Note(title: WelcomeMessages.SecondariesTitle, note: WelcomeMessages.SecondariesBody, noteId: UUID().uuidString)
-            PersistenceManager.updateWith(note: note, actionType: .add, keyObject: .priorities) { (error) in }
-            PersistenceManager.updateWith(note: note2, actionType: .add, keyObject: .secondaries) { (error) in }
+            let priorityWelcomeNote: Note      = Note(title: WelcomeMessages.PrioritiesTitle, note: WelcomeMessages.PrioritiesBody, noteId: UUID().uuidString)
+            let secondaryWelcomeNote: Note     = Note(title: WelcomeMessages.SecondariesTitle, note: WelcomeMessages.SecondariesBody, noteId: UUID().uuidString)
+            
+            PersistenceManager.updateWith(note: priorityWelcomeNote, actionType: .add, keyObject: .priorities) { (error) in }
+            PersistenceManager.updateWith(note: secondaryWelcomeNote, actionType: .add, keyObject: .secondaries) { (error) in }
         }
         return true
     }

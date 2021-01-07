@@ -29,26 +29,20 @@ class AddTaskVC: UIViewController {
     // MARK: - @objc Functions
     
     @objc func adjustForKeyboard(notification: Notification) {
-        ///
-        guard let keyboardValue = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
+        guard let keyboardValue     = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
 
-        let keyboardScreenEndFrame = keyboardValue.cgRectValue
-        let keyboardViewEndFrame = view.convert(keyboardScreenEndFrame, from: view.window)
+        let keyboardScreenEndFrame  = keyboardValue.cgRectValue
+        let keyboardViewEndFrame    = view.convert(keyboardScreenEndFrame, from: view.window)
+        let buttonValue             = addTaskButton.frame.height
         
-        let buttonValue = addTaskButton.frame.height
-
-        /// if keyboard is hiding that line will be executed
-        /// will be 0 then it will stay as it was constrained before
         if notification.name == UIResponder.keyboardWillHideNotification {
             taskBodyTextView.contentInset = .zero
         } else {
-        /// if keyboard is appearing, will calculate inset as keyboards hight from bottom's safe area
             taskBodyTextView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: keyboardViewEndFrame.height - view.safeAreaInsets.bottom - buttonValue, right: 0)
         }
         
-        taskBodyTextView.scrollIndicatorInsets = taskBodyTextView.contentInset
-
-        let selectedRange = taskBodyTextView.selectedRange
+        taskBodyTextView.scrollIndicatorInsets  = taskBodyTextView.contentInset
+        let selectedRange                       = taskBodyTextView.selectedRange
         taskBodyTextView.scrollRangeToVisible(selectedRange)
     }
     
@@ -78,14 +72,11 @@ class AddTaskVC: UIViewController {
         taskBodyTextView.isEditable = true
     }
     
-    /// Function that adjust TextView constraints and layout depending on a keyboard
+
     private func adjustTextViewLayoutToKeyboard() {
-        /// creates an instance of NotificationCenter
         let notificationCenter = NotificationCenter.default
-        /// Will be executed when keyboard is dismissed
-        /// Observes when UIResponder.keyboardWillHideNotification - When that happens, will execute objc adjustForKeyboard
+        
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
-        /// Observes when UIResponder.keyboardWillChangeFrameNotification - When that happens, will execute objc adjustForKeyboard
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
     // MARK: - Layout configurations

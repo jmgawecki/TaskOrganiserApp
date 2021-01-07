@@ -49,8 +49,6 @@ class AddSecondaryTaskVC: AddTaskVC {
     private func configureAddTaskButton() {
         addTaskButton.addTarget(self, action: #selector(addTaskButtonTapped), for: .touchUpInside)
     }
-    
-    
 }
 
 

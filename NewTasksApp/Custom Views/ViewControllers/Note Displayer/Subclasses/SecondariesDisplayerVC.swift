@@ -85,7 +85,7 @@ class SecondariesDisplayerVC: TaskDisplayerVC {
 
 extension SecondariesDisplayerVC: SecondariesEditorVCDelegatesForSecondariesDisplayerVC {
     func displayChangedTitleAndNoteInSecondariesDisplayer(title: String, note: String?) {
-        titleNoteLabel.text = title
-        taskBodyTextView.text = note
+        titleNoteLabel.text     = title
+        taskBodyTextView.text   = note
     }
 }

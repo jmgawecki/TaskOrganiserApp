@@ -37,7 +37,7 @@ class PrioritiesEditorVC: TasksEditorVC {
     @objc func editTaskButtonTapped() {
         guard !taskTitleTextField.text!.isEmpty else { return }
         let titleText   = taskTitleTextField.text!
-        let noteText = taskBodyTextView.text
+        let noteText    = taskBodyTextView.text
         prioritiesEditorToPrioritiesVCDelegate.uploadEditedTaskToDefaults(indexPath: indexPath, title: titleText, note: noteText)
         prioritiesEditorToPrioritiesDisplayerVCDelegate.displayChangedTitleAndNoteInPrioritiesDisplayer(title: titleText, note: noteText)
         dismiss(animated: true)

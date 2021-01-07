@@ -38,9 +38,10 @@ class TaskDisplayerVC: UIViewController {
     
     
     private func configureElements() {
-        moveToABButton.titleLabel?.adjustsFontSizeToFitWidth = true
-        titleNoteLabel.adjustsFontSizeToFitWidth = true
+        moveToABButton.titleLabel?.adjustsFontSizeToFitWidth    = true
+        titleNoteLabel.adjustsFontSizeToFitWidth                = true
     }
+    
     
     private func configureTaskBodyTextView() {
         taskBodyTextView.isEditable = false
@@ -58,11 +59,11 @@ class TaskDisplayerVC: UIViewController {
         
         let padding: CGFloat = 30
         
-        let titleTopConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : -40
-        let taskBodyTopConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
-        let buttonsBottomConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
+        let titleTopConstraintConstant: CGFloat                     = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : -40
+        let taskBodyTopConstraintConstant: CGFloat                  = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
+        let buttonsBottomConstraintConstant: CGFloat                = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
         let buttonsInnerLeadingTrailingConstraintsConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 5 : 10
-        let doneDeleteButtonBottomConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 20
+        let doneDeleteButtonBottomConstraintConstant: CGFloat       = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 20
         
         let buttonsHeight: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 44 : 50
 

@@ -84,7 +84,7 @@ class PrioritiesDisplayerVC: TaskDisplayerVC {
 
 extension PrioritiesDisplayerVC: PrioritiesEditorVCDelegatesForPrioritiesDisplayerVC {
     func displayChangedTitleAndNoteInPrioritiesDisplayer(title: String, note: String?) {
-        titleNoteLabel.text     = title
-        taskBodyTextView.text      = note
+        titleNoteLabel.text         = title
+        taskBodyTextView.text       = note
     }
 }
