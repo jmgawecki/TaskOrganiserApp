@@ -14,7 +14,6 @@ class TitleTextField: UITextField {
     override init(frame: CGRect) {
         super.init(frame: frame)
         configure()
-        configureKeyboardToolbar()
     }
     
     required init?(coder: NSCoder) {
@@ -23,17 +22,6 @@ class TitleTextField: UITextField {
     
     
     // MARK: - Configuration
-    
-    @objc private func doneButtonTapped() {
-        resignFirstResponder()
-    }
-    
-    private func configureKeyboardToolbar() {
-        let bar = UIToolbar()
-        let done = UIBarButtonItem(title: "Done", style: .plain, target: self, action: #selector(doneButtonTapped))
-        bar.items = [done]
-        inputAccessoryView = bar
-    }
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false

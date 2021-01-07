@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         /// That whole configuration will launch only at the first-time set up of the app.
-        /// A note is going to be placed for each Priorities and Secondaries as welcome Note.
+        /// A note is going to be placed for each Priorities and Secondaries as a welcome Note.
         /// Function will never run again unless app will be reinstalled
         var hasAlreadyLaunched :Bool!
         hasAlreadyLaunched = UserDefaults.standard.bool(forKey: "hasAlreadyLaunched")

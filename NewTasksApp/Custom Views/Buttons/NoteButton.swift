@@ -9,6 +9,7 @@ import UIKit
 
 class NoteButton: UIButton {
     
+    
     // MARK: - Overrides
     
     override init(frame: CGRect) {
@@ -35,7 +36,6 @@ class NoteButton: UIButton {
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false
-        
         layer.cornerRadius      = 15
         titleLabel?.textColor   = .white
     }
