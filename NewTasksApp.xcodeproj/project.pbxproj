@@ -38,6 +38,7 @@
 		EF6044682598B03C002B440C /* NoteTextView.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6044672598B03C002B440C /* NoteTextView.swift */; };
 		EF6044712598BBA9002B440C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF6044702598BBA9002B440C /* Constants.swift */; };
 		EF8415DF2597CC7900E0FE4A /* UIHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF8415DE2597CC7900E0FE4A /* UIHelper.swift */; };
+		EFCA743325DAE273007E461A /* TaskTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFCA743225DAE273007E461A /* TaskTabBarController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +96,7 @@
 		EF6044672598B03C002B440C /* NoteTextView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoteTextView.swift; sourceTree = "<group>"; };
 		EF6044702598BBA9002B440C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		EF8415DE2597CC7900E0FE4A /* UIHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIHelper.swift; sourceTree = "<group>"; };
+		EFCA743225DAE273007E461A /* TaskTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TaskTabBarController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,6 +246,7 @@
 		EF18A09425965B6700DE91B2 /* Custom Views */ = {
 			isa = PBXGroup;
 			children = (
+				EFCA743125DAE24F007E461A /* TabBar Controller */,
 				EF6044662598B01E002B440C /* TextViews */,
 				EF18A0D425967B8A00DE91B2 /* Cells */,
 				EF18A0AD2596637900DE91B2 /* ViewControllers */,
@@ -371,6 +374,14 @@
 			children = (
 			);
 			path = Extensions;
+			sourceTree = "<group>";
+		};
+		EFCA743125DAE24F007E461A /* TabBar Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EFCA743225DAE273007E461A /* TaskTabBarController.swift */,
+			);
+			path = "TabBar Controller";
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -518,6 +529,7 @@
 				EF139DC02596848C0099EA5E /* PrioritiesDisplayerVC.swift in Sources */,
 				EF18A0E82596809C00DE91B2 /* TitleNoteLabel.swift in Sources */,
 				EF035D1625978122004D23B9 /* PrioritiesEditorVC.swift in Sources */,
+				EFCA743325DAE273007E461A /* TaskTabBarController.swift in Sources */,
 				EF18A09825965E3800DE91B2 /* AddTaskVC.swift in Sources */,
 				EF139DCB25969AEC0099EA5E /* PersistenceManager.swift in Sources */,
 				EF18A0902596568600DE91B2 /* SecondariesVC.swift in Sources */,

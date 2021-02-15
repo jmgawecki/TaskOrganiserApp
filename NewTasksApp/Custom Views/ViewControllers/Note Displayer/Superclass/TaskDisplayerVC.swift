@@ -8,6 +8,8 @@
 import UIKit
 
 class TaskDisplayerVC: UIViewController {
+    //MARK: - Declarations
+    
     
     let titleNoteLabel      = TitleNoteLabel()
     let taskBodyTextView    = NoteTextView(frame: .zero)
@@ -18,6 +20,7 @@ class TaskDisplayerVC: UIViewController {
     
     // MARK: - Overrides
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
@@ -28,13 +31,9 @@ class TaskDisplayerVC: UIViewController {
     
     
     // MARK: - Configurations
-//
-   
-    //
+
     
-    private func configureVC() {
-        view.backgroundColor = .systemBackground
-    }
+    private func configureVC() { view.backgroundColor = .systemBackground }
     
     
     private func configureElements() {
@@ -43,12 +42,11 @@ class TaskDisplayerVC: UIViewController {
     }
     
     
-    private func configureTaskBodyTextView() {
-        taskBodyTextView.isEditable = false
-    }
+    private func configureTaskBodyTextView() { taskBodyTextView.isEditable = false }
     
     
-    // MARK: - Layout configurations
+    // MARK: - Layout configuration
+    
 
     private func layoutUI() {
         view.addSubview(titleNoteLabel)

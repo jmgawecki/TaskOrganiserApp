@@ -8,6 +8,9 @@
 import UIKit
 
 class TasksEditorVC: UIViewController {
+    //MARK: - Declarations
+    
+    
     let taskTitleTextField  = TitleTextField(frame: .zero)
     let taskBodyTextView    = NoteTextView(frame: .zero)
     let editTaskButton      = NoteButton(backgroundColor: .systemGreen, fontSize: 20, with: "Edit Task!")
@@ -15,6 +18,7 @@ class TasksEditorVC: UIViewController {
     
     // MARK: - Overrides
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
@@ -23,11 +27,11 @@ class TasksEditorVC: UIViewController {
     }
 
     
-    // MARK: - @objc Functions
+    // MARK: - @Objectives
 
-    @objc func cancelButtonTapped() {
-        dismiss(animated: true)
-    }
+    
+    @objc func cancelButtonTapped() { dismiss(animated: true) }
+    
     
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue     = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -48,7 +52,8 @@ class TasksEditorVC: UIViewController {
     }
    
     
-    // MARK: - Configurations
+    // MARK: - VC Configuration
+    
     
     private func adjustTextViewLayoutToKeyboard() {
         let notificationCenter = NotificationCenter.default
@@ -57,14 +62,14 @@ class TasksEditorVC: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
 
+    
     private func createDismissKeyboardTapGestureRecogniser() {
         let tap = UITapGestureRecognizer(target: view.self, action: #selector(UIView.endEditing(_:)))
         view.addGestureRecognizer(tap)
     }
     
-    private func configureTaskBodyTextView() {
-        taskBodyTextView.isEditable = true
-    }
+    
+    private func configureTaskBodyTextView() { taskBodyTextView.isEditable = true }
     
     
     private func configureVC() {
@@ -75,7 +80,7 @@ class TasksEditorVC: UIViewController {
     }
     
     
-    // MARK: - Layout configurations
+    // MARK: - Layout configuration
 
     private func configureLayout() {
         view.addSubview(taskTitleTextField)

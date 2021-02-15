@@ -17,31 +17,10 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         
         window                      = UIWindow(frame: windowScene.coordinateSpace.bounds)
         window?.windowScene         = windowScene
-        window?.rootViewController  = configureTabbarController()
+        window?.rootViewController  = TaskTabBarController()
         window?.makeKeyAndVisible()
     }
     
-    func configureTabbarController() -> UITabBarController {
-        let tabbar                              = UITabBarController()
-        tabbar.viewControllers                  = [configurePrioritiesNavigationController(), configureSecondariesNavigationController()]
-        UITabBar.appearance().tintColor         = .systemOrange
-        UINavigationBar.appearance().tintColor  = .systemOrange
-        return tabbar
-    }
-    
-    func configurePrioritiesNavigationController() -> UINavigationController {
-        let taskA           = PrioritiesVC()
-        taskA.title         = "Priorities"
-        taskA.tabBarItem    = UITabBarItem(title: "Priorities", image: UIImage(systemName: "tray.fill"), tag: 0)
-        return UINavigationController(rootViewController: taskA)
-    }
-    
-    func configureSecondariesNavigationController() -> UINavigationController {
-        let taskB           = SecondariesVC()
-        taskB.title         = "Secondaries"
-        taskB.tabBarItem    = UITabBarItem(title: "Secondaries", image: UIImage(systemName: "tray.2.fill"), tag: 1)
-        return UINavigationController(rootViewController: taskB)
-    }
 
     func sceneDidDisconnect(_ scene: UIScene) {
         // Called as the scene is being released by the system.

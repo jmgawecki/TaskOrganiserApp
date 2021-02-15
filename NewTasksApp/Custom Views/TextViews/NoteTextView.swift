@@ -7,10 +7,11 @@
 
 import UIKit
 
-class NoteTextView: UITextView {
+final class NoteTextView: UITextView {
 
     
     //MARK: - Overrides
+    
     
     override init(frame: CGRect, textContainer: NSTextContainer?) {
         super.init(frame: frame, textContainer: textContainer)
@@ -24,6 +25,7 @@ class NoteTextView: UITextView {
     
     //MARK: - @ Objectives
     
+    
     @objc private func doneButtonTapped() {
         resignFirstResponder()
     }
@@ -31,10 +33,15 @@ class NoteTextView: UITextView {
     
     //MARK: - Configurations
     
+    
     private func configure() {
         translatesAutoresizingMaskIntoConstraints   = false
         font                                        = UIFont.systemFont(ofSize: 20)
     }
+    
+    
+    //MARK: - Called outside
+    
     
     func configureKeyboardToolbar(in textView: UITextView) {
         guard isEditable == true else { return }

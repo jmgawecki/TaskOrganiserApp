@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NoteCell: UICollectionViewCell {
+final class NoteCell: UICollectionViewCell {
     
     static let reuseId = "NoteCell"
     
@@ -17,6 +17,7 @@ class NoteCell: UICollectionViewCell {
     
     // MARK: - Overrides
 
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         configureCell()
@@ -29,11 +30,15 @@ class NoteCell: UICollectionViewCell {
     }
 
     
-    // MARK: - Configurations
+    // MARK: - Called outside
 
+    
     func set(with message: String) {
         titleCellLabel.text = message
     }
+    
+    
+    //MARK: - Cell configuration
     
     
     private func configureCell() {
@@ -44,8 +49,9 @@ class NoteCell: UICollectionViewCell {
     }
 
     
-    // MARK: - Layout configurations
+    // MARK: - Layout configuration
 
+    
     private func configureLayoutUI() {
         addSubview(titleCellLabel)
         addSubview(iconImageView)
@@ -54,15 +60,15 @@ class NoteCell: UICollectionViewCell {
         iconImageView.tintColor = .systemOrange
         
         NSLayoutConstraint.activate([
-            iconImageView.centerYAnchor.constraint(equalTo: centerYAnchor, constant: 0),
-            iconImageView.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -17),
-            iconImageView.widthAnchor.constraint(equalToConstant: 20),
-            iconImageView.heightAnchor.constraint(equalTo: iconImageView.widthAnchor),
+            iconImageView.centerYAnchor.constraint      (equalTo: centerYAnchor, constant: 0),
+            iconImageView.trailingAnchor.constraint     (equalTo: trailingAnchor, constant: -17),
+            iconImageView.widthAnchor.constraint        (equalToConstant: 20),
+            iconImageView.heightAnchor.constraint       (equalTo: iconImageView.widthAnchor),
             
-            titleCellLabel.topAnchor.constraint(equalTo: topAnchor, constant: 0),
-            titleCellLabel.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            titleCellLabel.trailingAnchor.constraint(equalTo: iconImageView.leadingAnchor, constant: -15),
-            titleCellLabel.bottomAnchor.constraint(equalTo: bottomAnchor, constant: 0),
+            titleCellLabel.topAnchor.constraint         (equalTo: topAnchor, constant: 0),
+            titleCellLabel.leadingAnchor.constraint     (equalTo: leadingAnchor, constant: 20),
+            titleCellLabel.trailingAnchor.constraint    (equalTo: iconImageView.leadingAnchor, constant: -15),
+            titleCellLabel.bottomAnchor.constraint      (equalTo: bottomAnchor, constant: 0),
         ])
     }
 }

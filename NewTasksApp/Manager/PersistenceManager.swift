@@ -8,25 +8,18 @@
 import UIKit
 
 
-/// Determines path that the note is going to take. Passed on in PersistenceManager.moveNote
 enum FromTo: String {
     case fromPrioritiesToSecondaries = "fromPrioritiesToSecondaries"
     case fromSecondariesToPriorities = "fromSecondariesToPriorities"
 }
 
 
-/// Determines UserDefault's keyObjects. Passed on in:
-/// PersistenceManager.updateWith
-/// PersistenceManager.retrieveNotes
-/// PersistenceManager.saveNotes
-/// PersistenceManager.moveNotes
 enum KeyObjects: String {
     case priorities     = "priorities"
     case secondaries    = "secondaries"
 }
 
 
-/// Determines wether the note is going to be removed or added. Passed on in PersistenceManager.updateWith
 enum PersistenceActionType { case add, remove }
 
 enum PersistenceManager {

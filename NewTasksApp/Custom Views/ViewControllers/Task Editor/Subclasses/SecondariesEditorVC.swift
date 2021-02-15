@@ -7,17 +7,24 @@
 
 import UIKit
 
+//MARK: - Protocols and Delegates
+
+
 /// Delegate used in SecondariesVC. Delegate executed when @editTaskButtonTapped to update UserDefault' notes and the collectionView
 protocol SecondariesEditorVCDelegatesForSecondariesVC: class {
     func uploadEditedTaskToDefaults(indexPath: IndexPath, title: String, note: String?)
 }
+
 
 /// Protocol used in SecondariesDisplayerVC. Delegate executed when @editTaskButtonTapped  to display correct Title and Note after dismissing that VC
 protocol SecondariesEditorVCDelegatesForSecondariesDisplayerVC: class {
     func displayChangedTitleAndNoteInSecondariesDisplayer(title: String, note: String?)
 }
 
+
 class SecondariesEditorVC: TasksEditorVC {
+    //MARK: - Declarations
+    
     
     var secondariesEditorToSecondariesVCDelegate:           SecondariesEditorVCDelegatesForSecondariesVC!
     var secondariesEditorToSecondariesDisplayerVCDelegate:  SecondariesEditorVCDelegatesForSecondariesDisplayerVC!
@@ -26,13 +33,15 @@ class SecondariesEditorVC: TasksEditorVC {
     
     // MARK: - Overrides
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureEditButton()
     }
 
     
-    // MARK: - @objc Functions
+    // MARK: - @Objectives
+    
     
     @objc func editTaskButtonTapped() {
         guard !taskTitleTextField.text!.isEmpty else { return }
@@ -46,7 +55,6 @@ class SecondariesEditorVC: TasksEditorVC {
     
     // MARK: - Configurations
 
-    private func configureEditButton() {
-        editTaskButton.addTarget(self, action: #selector(editTaskButtonTapped), for: .touchUpInside)
-    }
+    
+    private func configureEditButton() { editTaskButton.addTarget(self, action: #selector(editTaskButtonTapped), for: .touchUpInside) }
 }
