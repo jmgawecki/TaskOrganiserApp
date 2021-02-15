@@ -7,12 +7,17 @@
 
 import UIKit
 
-/// Delegates used in PrioritiesVC. Executed when @addTaskButtonTapped. Add a note to Priorities UserDefault and update the collction view. Dismiss the currect VC
+// MARK: - Protocols and Delegates
+
+
 protocol AddPriorityTaskDelegates: class {
     func didAddPriorityTask(titled: String, with note: String?)
 }
 
-class AddPriorityTaskVC: AddTaskVC {
+
+final class AddPriorityTaskVC: AddTaskVC {
+    // MARK: - Declarations
+    
     
     weak var delegate: AddPriorityTaskDelegates!
     
@@ -21,13 +26,15 @@ class AddPriorityTaskVC: AddTaskVC {
     
     // MARK: - Overrides
     
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
     }
 
     
-    // MARK: - @objc Functions
+    // MARK: - @Objectives
+    
     
     override func addTaskButtonTapped() {
         guard !taskTitleTextField.text!.isEmpty else { return }
@@ -35,25 +42,24 @@ class AddPriorityTaskVC: AddTaskVC {
         let taskBody    = taskBodyTextView.text
         delegate.didAddPriorityTask(titled: taskTitle, with: taskBody)
         dismiss(animated: true)
-
     }
     
     
-    // MARK: - Configurations
-
+    // MARK: - Configuration
+    
+    
     private func configureVC() {
         title                       = "Add a Priority task"
         taskTitleTextField.delegate = self
     }
     
     
-    private func configureAddTaskButton() {
-        addTaskButton.addTarget(self, action: #selector(addTaskButtonTapped), for: .touchUpInside)
-    }
+    private func configureAddTaskButton() { addTaskButton.addTarget(self, action: #selector(addTaskButtonTapped), for: .touchUpInside) }
 }
 
 
 // MARK: - Extensions
+
 
 extension AddPriorityTaskVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

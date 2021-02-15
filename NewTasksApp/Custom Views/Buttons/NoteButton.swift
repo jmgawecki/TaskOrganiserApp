@@ -7,10 +7,11 @@
 
 import UIKit
 
-class NoteButton: UIButton {
+final class NoteButton: UIButton {
     
     
     // MARK: - Overrides
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -24,6 +25,7 @@ class NoteButton: UIButton {
     
     // MARK: - Initialiser
     
+    
     convenience init(backgroundColor: UIColor, fontSize: CGFloat, with message: String) {
         self.init(frame: .zero)
         self.backgroundColor    = backgroundColor
@@ -33,6 +35,7 @@ class NoteButton: UIButton {
     
     
     //MARK: - Configuration
+    
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false

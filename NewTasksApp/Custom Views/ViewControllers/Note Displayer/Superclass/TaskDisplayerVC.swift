@@ -11,11 +11,11 @@ class TaskDisplayerVC: UIViewController {
     //MARK: - Declarations
     
     
-    let titleNoteLabel      = TitleNoteLabel()
-    let taskBodyTextView    = NoteTextView(frame: .zero)
+    let titleNoteLbl        = TitleNoteLabel()
+    let taskBodyTxtV        = NoteTextView(frame: .zero)
     let editButton          = NoteButton(backgroundColor: .systemOrange, fontSize: 20, with: "Edit")
-    let moveToABButton      = NoteButton(backgroundColor: .systemTeal, fontSize: 20, with: "")
-    let doneDeleteButton    = NoteButton(backgroundColor: .systemGreen, fontSize: 20, with: "Mark done and delete!")
+    let moveToABBtn         = NoteButton(backgroundColor: .systemTeal, fontSize: 20, with: "")
+    let doneDeleteBtn       = NoteButton(backgroundColor: .systemGreen, fontSize: 20, with: "Mark done and delete!")
 
     
     // MARK: - Overrides
@@ -37,60 +37,56 @@ class TaskDisplayerVC: UIViewController {
     
     
     private func configureElements() {
-        moveToABButton.titleLabel?.adjustsFontSizeToFitWidth    = true
-        titleNoteLabel.adjustsFontSizeToFitWidth                = true
+        moveToABBtn.titleLabel?.adjustsFontSizeToFitWidth    = true
+        titleNoteLbl.adjustsFontSizeToFitWidth                = true
     }
     
     
-    private func configureTaskBodyTextView() { taskBodyTextView.isEditable = false }
+    private func configureTaskBodyTextView() { taskBodyTxtV.isEditable = false }
     
     
     // MARK: - Layout configuration
     
 
     private func layoutUI() {
-        view.addSubview(titleNoteLabel)
-        view.addSubview(taskBodyTextView)
-        view.addSubview(editButton)
-        view.addSubview(moveToABButton)
-        view.addSubview(doneDeleteButton)
+        addSubviews(titleNoteLbl, taskBodyTxtV, editButton, moveToABBtn, doneDeleteBtn)
         
         let padding: CGFloat = 30
         
-        let titleTopConstraintConstant: CGFloat                     = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : -40
-        let taskBodyTopConstraintConstant: CGFloat                  = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
-        let buttonsBottomConstraintConstant: CGFloat                = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
-        let buttonsInnerLeadingTrailingConstraintsConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 5 : 10
-        let doneDeleteButtonBottomConstraintConstant: CGFloat       = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 20
+        let titleTopConstraint: CGFloat                     = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : -40
+        let taskBodyTopConstraint: CGFloat                  = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
+        let buttonsBottomConstraint: CGFloat                = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
+        let buttonsInnerLeftRightConstraints: CGFloat       = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 5 : 10
+        let doneDeleteButtonBottomConstraint: CGFloat       = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 20
         
         let buttonsHeight: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 44 : 50
 
         
         NSLayoutConstraint.activate([
-            titleNoteLabel.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: titleTopConstraintConstant),
-            titleNoteLabel.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            titleNoteLabel.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            titleNoteLabel.heightAnchor.constraint(equalToConstant: 40),
+            titleNoteLbl.topAnchor.constraint       (equalTo: view.safeAreaLayoutGuide.topAnchor, constant: titleTopConstraint),
+            titleNoteLbl.leadingAnchor.constraint   (equalTo: view.leadingAnchor, constant: padding),
+            titleNoteLbl.trailingAnchor.constraint  (equalTo: view.trailingAnchor, constant: -padding),
+            titleNoteLbl.heightAnchor.constraint    (equalToConstant: 40),
             
-            taskBodyTextView.topAnchor.constraint(equalTo: titleNoteLabel.bottomAnchor, constant: taskBodyTopConstraintConstant),
-            taskBodyTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            taskBodyTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            taskBodyTextView.bottomAnchor.constraint(equalTo: doneDeleteButton.topAnchor, constant: -20),
+            taskBodyTxtV.topAnchor.constraint       (equalTo: titleNoteLbl.bottomAnchor, constant: taskBodyTopConstraint),
+            taskBodyTxtV.leadingAnchor.constraint   (equalTo: view.leadingAnchor, constant: padding),
+            taskBodyTxtV.trailingAnchor.constraint  (equalTo: view.trailingAnchor, constant: -padding),
+            taskBodyTxtV.bottomAnchor.constraint    (equalTo: doneDeleteBtn.topAnchor, constant: -20),
             
-            editButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -buttonsBottomConstraintConstant),
-            editButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            editButton.trailingAnchor.constraint(equalTo: doneDeleteButton.centerXAnchor, constant: -buttonsInnerLeadingTrailingConstraintsConstant),
-            editButton.heightAnchor.constraint(equalToConstant: buttonsHeight),
+            editButton.bottomAnchor.constraint      (equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -buttonsBottomConstraint),
+            editButton.leadingAnchor.constraint     (equalTo: view.leadingAnchor, constant: padding),
+            editButton.trailingAnchor.constraint    (equalTo: doneDeleteBtn.centerXAnchor, constant: -buttonsInnerLeftRightConstraints),
+            editButton.heightAnchor.constraint      (equalToConstant: buttonsHeight),
             
-            moveToABButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            moveToABButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -buttonsBottomConstraintConstant),
-            moveToABButton.leadingAnchor.constraint(equalTo: doneDeleteButton.centerXAnchor, constant: buttonsInnerLeadingTrailingConstraintsConstant),
-            moveToABButton.heightAnchor.constraint(equalToConstant: buttonsHeight),
+            moveToABBtn.trailingAnchor.constraint   (equalTo: view.trailingAnchor, constant: -padding),
+            moveToABBtn.bottomAnchor.constraint     (equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -buttonsBottomConstraint),
+            moveToABBtn.leadingAnchor.constraint    (equalTo: doneDeleteBtn.centerXAnchor, constant: buttonsInnerLeftRightConstraints),
+            moveToABBtn.heightAnchor.constraint     (equalToConstant: buttonsHeight),
             
-            doneDeleteButton.bottomAnchor.constraint(equalTo: moveToABButton.topAnchor, constant: -doneDeleteButtonBottomConstraintConstant),
-            doneDeleteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            doneDeleteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            doneDeleteButton.heightAnchor.constraint(equalToConstant: buttonsHeight),
+            doneDeleteBtn.bottomAnchor.constraint   (equalTo: moveToABBtn.topAnchor, constant: -doneDeleteButtonBottomConstraint),
+            doneDeleteBtn.leadingAnchor.constraint  (equalTo: view.leadingAnchor, constant: padding),
+            doneDeleteBtn.trailingAnchor.constraint (equalTo: view.trailingAnchor, constant: -padding),
+            doneDeleteBtn.heightAnchor.constraint   (equalToConstant: buttonsHeight),
         ])
     }
 }

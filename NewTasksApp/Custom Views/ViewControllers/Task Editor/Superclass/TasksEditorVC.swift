@@ -83,33 +83,31 @@ class TasksEditorVC: UIViewController {
     // MARK: - Layout configuration
 
     private func configureLayout() {
-        view.addSubview(taskTitleTextField)
-        view.addSubview(editTaskButton)
-        view.addSubview(taskBodyTextView)
+        addSubviews(taskTitleTextField, editTaskButton, taskBodyTextView)
         
         taskBodyTextView.configureKeyboardToolbar(in: taskBodyTextView)
  
         let padding: CGFloat = 30
         
-        let titleTopConstraintConstant: CGFloat     = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
-        let taskBodyTopConstraintConstant: CGFloat  = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 5 : 30
+        let titleTopConstraint: CGFloat     = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 30
+        let taskBodyTopConstraint: CGFloat  = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 5 : 30
         
         NSLayoutConstraint.activate([
             
-            taskTitleTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: titleTopConstraintConstant),
-            taskTitleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 30),
-            taskTitleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -30),
-            taskTitleTextField.heightAnchor.constraint(equalToConstant: 40),
+            taskTitleTextField.topAnchor.constraint         (equalTo: view.safeAreaLayoutGuide.topAnchor, constant: titleTopConstraint),
+            taskTitleTextField.leadingAnchor.constraint     (equalTo: view.leadingAnchor, constant: 30),
+            taskTitleTextField.trailingAnchor.constraint    (equalTo: view.trailingAnchor, constant: -30),
+            taskTitleTextField.heightAnchor.constraint      (equalToConstant: 40),
             
-            editTaskButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
-            editTaskButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            editTaskButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            editTaskButton.heightAnchor.constraint(equalToConstant: 50),
+            editTaskButton.bottomAnchor.constraint          (equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
+            editTaskButton.leadingAnchor.constraint         (equalTo: view.leadingAnchor, constant: padding),
+            editTaskButton.trailingAnchor.constraint        (equalTo: view.trailingAnchor, constant: -padding),
+            editTaskButton.heightAnchor.constraint          (equalToConstant: 50),
             
-            taskBodyTextView.topAnchor.constraint(equalTo: taskTitleTextField.bottomAnchor, constant: taskBodyTopConstraintConstant),
-            taskBodyTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            taskBodyTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            taskBodyTextView.bottomAnchor.constraint(equalTo: editTaskButton.topAnchor, constant: -20),
+            taskBodyTextView.topAnchor.constraint           (equalTo: taskTitleTextField.bottomAnchor, constant: taskBodyTopConstraint),
+            taskBodyTextView.leadingAnchor.constraint       (equalTo: view.leadingAnchor, constant: padding),
+            taskBodyTextView.trailingAnchor.constraint      (equalTo: view.trailingAnchor, constant: -padding),
+            taskBodyTextView.bottomAnchor.constraint        (equalTo: editTaskButton.topAnchor, constant: -20),
         ])
     }
 }

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleCellLabel: UILabel {
+final class TitleCellLabel: UILabel {
 
     // MARK: - Overrides
 

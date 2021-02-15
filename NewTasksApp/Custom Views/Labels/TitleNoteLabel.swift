@@ -7,7 +7,7 @@
 
 import UIKit
 
-class TitleNoteLabel: UILabel {
+final class TitleNoteLabel: UILabel {
     
     // MARK: - Overrides
     

@@ -7,9 +7,10 @@
 
 import UIKit
 
-class TitleTextField: UITextField {
+final class TitleTextField: UITextField {
 
     // MARK: - Overrides
+    
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -22,6 +23,7 @@ class TitleTextField: UITextField {
     
     
     // MARK: - Configuration
+    
     
     private func configure() {
         translatesAutoresizingMaskIntoConstraints = false

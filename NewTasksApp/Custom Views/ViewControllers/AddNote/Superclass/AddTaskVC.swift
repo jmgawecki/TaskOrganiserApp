@@ -8,6 +8,8 @@
 import UIKit
 
 class AddTaskVC: UIViewController {
+    // MARK: - Declarations
+    
     
     let taskTitleTextField  = TitleTextField(frame: .zero)
     let taskBodyTextView    = NoteTextView(frame: .zero)
@@ -16,6 +18,7 @@ class AddTaskVC: UIViewController {
     
     // MARK: - Overrides
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
@@ -26,7 +29,8 @@ class AddTaskVC: UIViewController {
     }
     
     
-    // MARK: - @objc Functions
+    // MARK: - @Objectives
+    
     
     @objc func adjustForKeyboard(notification: Notification) {
         guard let keyboardValue     = notification.userInfo?[UIResponder.keyboardFrameEndUserInfoKey] as? NSValue else { return }
@@ -46,17 +50,20 @@ class AddTaskVC: UIViewController {
         taskBodyTextView.scrollRangeToVisible(selectedRange)
     }
     
+    
     @objc func cancelButtonTapped() {
         dismiss(animated: true)
     }
+    
     
     @objc func addTaskButtonTapped() {
         /// Override in subclasses
     }
     
     
-    // MARK: - Configurations
+    // MARK: - Configuration
 
+    
     private func configureVC() {
         navigationController?.navigationBar.prefersLargeTitles  = false
         navigationItem.rightBarButtonItem                       = UIBarButtonItem(barButtonSystemItem: .cancel, target: self, action: #selector(cancelButtonTapped))
@@ -79,36 +86,37 @@ class AddTaskVC: UIViewController {
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillHideNotification, object: nil)
         notificationCenter.addObserver(self, selector: #selector(adjustForKeyboard), name: UIResponder.keyboardWillChangeFrameNotification, object: nil)
     }
+    
+    
     // MARK: - Layout configurations
     
+    
     private func configureLayout() {
-        view.addSubview(taskTitleTextField)
-        view.addSubview(taskBodyTextView)
-        view.addSubview(addTaskButton)
+        addSubviews(taskTitleTextField, taskBodyTextView, addTaskButton)
         
         taskBodyTextView.configureKeyboardToolbar(in: taskBodyTextView)
         
-        let topTitleConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 20
-        let topTaskBodyConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 0 : 20
+        let topTitleConstraint: CGFloat     = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 10 : 20
+        let topTaskBodyConstraint: CGFloat  = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? 0 : 20
 
         
         let padding: CGFloat = 20
         
         NSLayoutConstraint.activate([
-            taskTitleTextField.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topTitleConstraintConstant),
-            taskTitleTextField.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            taskTitleTextField.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            taskTitleTextField.heightAnchor.constraint(equalToConstant: 50),
+            taskTitleTextField.topAnchor.constraint         (equalTo: view.safeAreaLayoutGuide.topAnchor, constant: topTitleConstraint),
+            taskTitleTextField.leadingAnchor.constraint     (equalTo: view.leadingAnchor, constant: padding),
+            taskTitleTextField.trailingAnchor.constraint    (equalTo: view.trailingAnchor, constant: -padding),
+            taskTitleTextField.heightAnchor.constraint      (equalToConstant: 50),
             
-            addTaskButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
-            addTaskButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            addTaskButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            addTaskButton.heightAnchor.constraint(equalToConstant: 50),
+            addTaskButton.bottomAnchor.constraint           (equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: -padding),
+            addTaskButton.leadingAnchor.constraint          (equalTo: view.leadingAnchor, constant: padding),
+            addTaskButton.trailingAnchor.constraint         (equalTo: view.trailingAnchor, constant: -padding),
+            addTaskButton.heightAnchor.constraint           (equalToConstant: 50),
             
-            taskBodyTextView.topAnchor.constraint(equalTo: taskTitleTextField.bottomAnchor, constant: topTaskBodyConstraintConstant),
-            taskBodyTextView.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: padding),
-            taskBodyTextView.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -padding),
-            taskBodyTextView.bottomAnchor.constraint(equalTo: addTaskButton.topAnchor, constant: -padding),
+            taskBodyTextView.topAnchor.constraint           (equalTo: taskTitleTextField.bottomAnchor, constant: topTaskBodyConstraint),
+            taskBodyTextView.leadingAnchor.constraint       (equalTo: view.leadingAnchor, constant: padding),
+            taskBodyTextView.trailingAnchor.constraint      (equalTo: view.trailingAnchor, constant: -padding),
+            taskBodyTextView.bottomAnchor.constraint        (equalTo: addTaskButton.topAnchor, constant: -padding),
         ])
     }
 }

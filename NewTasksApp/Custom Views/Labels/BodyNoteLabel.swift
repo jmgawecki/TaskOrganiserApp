@@ -7,7 +7,7 @@
 
 import UIKit
 
-class BodyNoteLabel: UILabel {
+final class BodyNoteLabel: UILabel {
     
     // MARK: - Overrides
 

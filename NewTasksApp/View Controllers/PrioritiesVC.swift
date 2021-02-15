@@ -7,7 +7,9 @@
 
 import UIKit
 
-class PrioritiesVC: UIViewController {
+final class PrioritiesVC: UIViewController {
+    // MARK: - Declarations
+    
     
     enum Section { case main }
     
@@ -21,6 +23,7 @@ class PrioritiesVC: UIViewController {
 
     
     // MARK: - Overrides
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +43,8 @@ class PrioritiesVC: UIViewController {
     }
     
     
-    //MARK: - @objc Functions
+    //MARK: - @Objectives
+    
     
     @objc func addNoteButtonTapped() {
         let addTaskVC       = AddPriorityTaskVC()
@@ -52,12 +56,15 @@ class PrioritiesVC: UIViewController {
     
     //MARK: - Private functions
     
+    
     private func configureVC() {
         view.backgroundColor                                    = .systemBackground
-        
         let largeTitleBasedOnScreenSize: Bool                   = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? false : true
         navigationController?.navigationBar.prefersLargeTitles  = largeTitleBasedOnScreenSize
     }
+    
+    
+    // MARK: - Persistence Manager functions
     
     
     private func getNotes() {
@@ -79,6 +86,9 @@ class PrioritiesVC: UIViewController {
     }
     
     
+    // MARK: - Collection View configuration
+    
+    
     private func configureDataSource() {
         dataSource = UICollectionViewDiffableDataSource<Section,Note>(collectionView: collectionView, cellProvider: { (collectionView, indexPath, notes) -> UICollectionViewCell? in
             let cell = collectionView.dequeueReusableCell(withReuseIdentifier: NoteCell.reuseId, for: indexPath) as! NoteCell
@@ -98,23 +108,6 @@ class PrioritiesVC: UIViewController {
     }
     
     
-    // MARK: - Layout configurations
-    
-    private func configureAddNoteButton() {
-        view.addSubview(addNoteButton)
-        addNoteButton.addTarget(self, action: #selector(addNoteButtonTapped), for: .touchUpInside)
-        
-        let bottomConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -10 : -20
-        
-        NSLayoutConstraint.activate([
-            addNoteButton.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 22),
-            addNoteButton.bottomAnchor.constraint(equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: bottomConstraintConstant),
-            addNoteButton.heightAnchor.constraint(equalToConstant: 50),
-            addNoteButton.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -22)
-        ])
-    }
-    
-    
     private func configureCollectionView() {
         collectionView = UICollectionView(frame: .zero, collectionViewLayout: UIHelper.createOneColumnCollectionViewFlowLayout(in: view))
         view.addSubview(collectionView)
@@ -125,15 +118,36 @@ class PrioritiesVC: UIViewController {
         
         collectionView.register(NoteCell.self, forCellWithReuseIdentifier: NoteCell.reuseId)
         
+        let bottomConstraint: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -10 : -20
+        
+        NSLayoutConstraint.activate([
+            collectionView.topAnchor.constraint         (equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
+            collectionView.leadingAnchor.constraint     (equalTo: view.leadingAnchor),
+            collectionView.trailingAnchor.constraint    (equalTo: view.trailingAnchor),
+            collectionView.bottomAnchor.constraint      (equalTo: addNoteButton.topAnchor, constant: bottomConstraint)
+        ])
+    }
+    
+    
+    // MARK: - Layout configuration
+    
+    
+    private func configureAddNoteButton() {
+        view.addSubview(addNoteButton)
+        addNoteButton.addTarget(self, action: #selector(addNoteButtonTapped), for: .touchUpInside)
+        
         let bottomConstraintConstant: CGFloat = DeviceTypes.isiPhoneSE || DeviceTypes.isiPhone8Zoomed ? -10 : -20
         
         NSLayoutConstraint.activate([
-            collectionView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 10),
-            collectionView.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-            collectionView.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-            collectionView.bottomAnchor.constraint(equalTo: addNoteButton.topAnchor, constant: bottomConstraintConstant)
+            addNoteButton.leadingAnchor.constraint      (equalTo: view.leadingAnchor, constant: 22),
+            addNoteButton.bottomAnchor.constraint       (equalTo: view.safeAreaLayoutGuide.bottomAnchor, constant: bottomConstraintConstant),
+            addNoteButton.heightAnchor.constraint       (equalToConstant: 50),
+            addNoteButton.trailingAnchor.constraint     (equalTo: view.trailingAnchor, constant: -22)
         ])
     }
+    
+    
+    
     
 }
 
@@ -153,8 +167,8 @@ extension PrioritiesVC: UICollectionViewDelegate {
         destVC.prioritiesDisplayerDelegate  = self
         destVC.prioritiesEditorDelegates    = self
         destVC.previousVC                   = self
-        destVC.titleNoteLabel.text          = notes[note].title
-        destVC.taskBodyTextView.text        = notes[note].note
+        destVC.titleNoteLbl.text          = notes[note].title
+        destVC.taskBodyTxtV.text        = notes[note].note
         navigationController?.pushViewController(destVC, animated: true)
     }
 }

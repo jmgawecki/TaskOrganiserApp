@@ -7,13 +7,17 @@
 
 import UIKit
 
-/// Delegates used in SecondariesVC. Executed when @addTaskButtonTapped. Add a note to Secondaries UserDefault and update the collection view. Dismiss the currect VC
+// MARK: - Protocols and Delegates
+
+
 protocol AddSecondaryTaskDelegates: class {
     func didAddSecondaryTask(titled: String, with note: String?)
 }
 
 
-class AddSecondaryTaskVC: AddTaskVC {
+final class AddSecondaryTaskVC: AddTaskVC {
+    // MARK: - Declarations
+
     
     weak var delegate: AddSecondaryTaskDelegates!
     
@@ -22,13 +26,15 @@ class AddSecondaryTaskVC: AddTaskVC {
     
     // MARK: - Overrides
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         configureVC()
     }
 
     
-    // MARK: - @objc Functions
+    // MARK: - @Objectives
+    
     
     override func addTaskButtonTapped() {
         guard !taskTitleTextField.text!.isEmpty else { return }
@@ -39,20 +45,20 @@ class AddSecondaryTaskVC: AddTaskVC {
     }
     
     
-    // MARK: - Configurations
+    // MARK: - Configuration
 
+    
     private func configureVC() {
         title                       = "Add a Secondary task"
         taskTitleTextField.delegate = self
     }
     
-    private func configureAddTaskButton() {
-        addTaskButton.addTarget(self, action: #selector(addTaskButtonTapped), for: .touchUpInside)
-    }
+    private func configureAddTaskButton() { addTaskButton.addTarget(self, action: #selector(addTaskButtonTapped), for: .touchUpInside) }
 }
 
 
 // MARK: - Extensions
+
 
 extension AddSecondaryTaskVC: UITextFieldDelegate {
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {

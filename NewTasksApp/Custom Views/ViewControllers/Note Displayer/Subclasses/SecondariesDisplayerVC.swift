@@ -7,15 +7,16 @@
 
 import UIKit
 
-/// Delegates used in SecondariesVC
-/// didMoveNoteToPriorities executed when @moveToABButtonTapped. Moves note from Secondaries to Priorities in UserDefaults
-/// didDeleteNoteFromPriorities executed when @doneDeleteButtonTapped. Delete that note from UserDefault and update the collection View
+// MARK: - Protocols and Delegates
+
+
 protocol SecondariesDisplayerDelegate: class {
     func didMoveNoteToPriorities(with indexPath: IndexPath, back previousVC: SecondariesVC)
     func didDeleteNoteFromSecondaries(with indexPath: IndexPath, back previousVC: SecondariesVC)
 }
 
-class SecondariesDisplayerVC: TaskDisplayerVC {
+final class SecondariesDisplayerVC: TaskDisplayerVC {
+    // MARK: - Declarations
     
     
     weak var prioritiesDisplayerDelegate:   SecondariesDisplayerDelegate!
@@ -27,6 +28,7 @@ class SecondariesDisplayerVC: TaskDisplayerVC {
     
     // MARK: - Overrides
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -36,7 +38,8 @@ class SecondariesDisplayerVC: TaskDisplayerVC {
     }
     
 
-    // MARK: - @objc Functions
+    // MARK: - @Objectives
+    
     
     @objc func doneDeleteButtonTapped() {
         prioritiesDisplayerDelegate.didDeleteNoteFromSecondaries(with: indexPath, back: previousVC)
@@ -52,26 +55,26 @@ class SecondariesDisplayerVC: TaskDisplayerVC {
         let editTaskVC                                                 = SecondariesEditorVC()
         editTaskVC.secondariesEditorToSecondariesVCDelegate            = prioritiesEditorDelegates
         editTaskVC.secondariesEditorToSecondariesDisplayerVCDelegate   = self
-        editTaskVC.taskTitleTextField.text                             = titleNoteLabel.text
-        editTaskVC.taskBodyTextView.text                               = taskBodyTextView.text
+        editTaskVC.taskTitleTextField.text                             = titleNoteLbl.text
+        editTaskVC.taskBodyTextView.text                               = taskBodyTxtV.text
         editTaskVC.indexPath                                           = indexPath
         
         let navbar = UINavigationController(rootViewController: editTaskVC)
         present(navbar, animated: true)
-        
     }
     
     
-    // MARK: - Configurations
+    // MARK: - Configuration
 
+    
     func configureDeleteButton() {
-        doneDeleteButton.addTarget(self, action: #selector(doneDeleteButtonTapped), for: .touchUpInside)
+        doneDeleteBtn.addTarget(self, action: #selector(doneDeleteButtonTapped), for: .touchUpInside)
     }
     
     
     private func configureMoveToAButton() {
-        moveToABButton.setTitle("to Piorities", for: .normal)
-        moveToABButton.addTarget(self, action: #selector(moveToSecondariesButtonTapped), for: .touchUpInside)
+        moveToABBtn.setTitle("to Piorities", for: .normal)
+        moveToABBtn.addTarget(self, action: #selector(moveToSecondariesButtonTapped), for: .touchUpInside)
     }
     
     
@@ -85,7 +88,7 @@ class SecondariesDisplayerVC: TaskDisplayerVC {
 
 extension SecondariesDisplayerVC: SecondariesEditorVCDelegatesForSecondariesDisplayerVC {
     func displayChangedTitleAndNoteInSecondariesDisplayer(title: String, note: String?) {
-        titleNoteLabel.text     = title
-        taskBodyTextView.text   = note
+        titleNoteLbl.text     = title
+        taskBodyTxtV.text   = note
     }
 }

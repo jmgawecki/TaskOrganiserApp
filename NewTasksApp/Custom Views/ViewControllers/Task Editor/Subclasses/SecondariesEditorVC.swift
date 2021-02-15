@@ -10,13 +10,11 @@ import UIKit
 //MARK: - Protocols and Delegates
 
 
-/// Delegate used in SecondariesVC. Delegate executed when @editTaskButtonTapped to update UserDefault' notes and the collectionView
 protocol SecondariesEditorVCDelegatesForSecondariesVC: class {
     func uploadEditedTaskToDefaults(indexPath: IndexPath, title: String, note: String?)
 }
 
 
-/// Protocol used in SecondariesDisplayerVC. Delegate executed when @editTaskButtonTapped  to display correct Title and Note after dismissing that VC
 protocol SecondariesEditorVCDelegatesForSecondariesDisplayerVC: class {
     func displayChangedTitleAndNoteInSecondariesDisplayer(title: String, note: String?)
 }
