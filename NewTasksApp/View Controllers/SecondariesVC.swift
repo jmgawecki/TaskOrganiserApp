@@ -13,12 +13,12 @@ final class SecondariesVC: UIViewController {
 
     enum Section { case main }
     
-    let addNoteButton = NoteButton(backgroundColor: .systemOrange, fontSize: 20, with: "Add a task")
+    let addNoteButton   = NoteButton(backgroundColor: .systemOrange, fontSize: 20, with: "Add a task")
     var collectionView: UICollectionView!
-    var dataSource: UICollectionViewDiffableDataSource<Section, Note>!
+    var dataSource:     UICollectionViewDiffableDataSource<Section, Note>!
     
-    var notes: [Note] = []
-    var noteBIndex = 1
+    var notes:          [Note] = []
+    var noteBIndex      = 1
 
     
     // MARK: - Overrides
@@ -159,8 +159,8 @@ extension SecondariesVC: UICollectionViewDelegate {
         destVC.prioritiesDisplayerDelegate      = self
         destVC.prioritiesEditorDelegates        = self
         destVC.previousVC                       = self
-        destVC.titleNoteLbl.text              = notes[note].title
-        destVC.taskBodyTxtV.text            = notes[note].note
+        destVC.titleNoteLbl.text                = notes[note].title
+        destVC.taskBodyTxtV.text                = notes[note].note
         navigationController?.pushViewController(destVC, animated: true)
     }
 }
@@ -212,8 +212,8 @@ extension SecondariesVC: SecondariesEditorVCDelegatesForSecondariesVC {
     ///   - title: title for the note passed on in SecondariesEditorVC
     ///   - note: body for the note passed on in SecondariesEditorVC
     func uploadEditedTaskToDefaults(indexPath: IndexPath, title: String, note: String?) {
-        notes[indexPath.item].title = title
-        notes[indexPath.item].note = note
+        notes[indexPath.item].title     = title
+        notes[indexPath.item].note      = note
         updateData(on: notes)
         let _ = PersistenceManager.saveNotes(notes: notes, for: .secondaries)
     }

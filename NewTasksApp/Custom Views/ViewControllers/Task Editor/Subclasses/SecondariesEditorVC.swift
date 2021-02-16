@@ -24,8 +24,8 @@ class SecondariesEditorVC: TasksEditorVC {
     //MARK: - Declarations
     
     
-    var secondariesEditorToSecondariesVCDelegate:           SecondariesEditorVCDelegatesForSecondariesVC!
-    var secondariesEditorToSecondariesDisplayerVCDelegate:  SecondariesEditorVCDelegatesForSecondariesDisplayerVC!
+    weak var secondariesEditorToSecondariesVCDelegate:           SecondariesEditorVCDelegatesForSecondariesVC!
+    weak var secondariesEditorToSecondariesDisplayerVCDelegate:  SecondariesEditorVCDelegatesForSecondariesDisplayerVC!
     var indexPath:  IndexPath!
     
     

@@ -24,8 +24,8 @@ final class PrioritiesEditorVC: TasksEditorVC {
     //MARK: - Declarations
     
     
-    var prioritiesEditorToPrioritiesVCDelegate:           PrioritiesEditorVCDelegatesForPrioritiesVC!
-    var prioritiesEditorToPrioritiesDisplayerVCDelegate:  PrioritiesEditorVCDelegatesForPrioritiesDisplayerVC!
+    weak var prioritiesEditorToPrioritiesVCDelegate:           PrioritiesEditorVCDelegatesForPrioritiesVC!
+    weak var prioritiesEditorToPrioritiesDisplayerVCDelegate:  PrioritiesEditorVCDelegatesForPrioritiesDisplayerVC!
     var indexPath:  IndexPath!
     
     

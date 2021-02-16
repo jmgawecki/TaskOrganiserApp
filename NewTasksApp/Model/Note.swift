@@ -8,7 +8,7 @@
 import UIKit
 
 struct Note: Hashable, Codable {
-    var title: String
-    var note: String?
+    var title:  String
+    var note:   String?
     let noteId: String
 }
