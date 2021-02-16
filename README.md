@@ -11,8 +11,6 @@ Technology used:
 - UI adjustment to screen sizes (including iPhone SE 1st gen. and iPhone 8 Zoomed)
 - Night/Light mode UI adjustment
 
-Project available to download from the repository: https://github.com/jmgawecki/NewTasksApp
-
 Please follow the link below to watch the short video presenting the functionality of the app:)
 
 https://drive.google.com/file/d/1kKJ76feII_HYS1kxRXjHt7YJy3aM386x/view?usp=sharing
