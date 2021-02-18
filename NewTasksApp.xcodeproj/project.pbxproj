@@ -163,6 +163,7 @@
 		EF139DD22596A3AD0099EA5E /* Utilites */ = {
 			isa = PBXGroup;
 			children = (
+				EFCA743D25DAE4B9007E461A /* Extensions */,
 				EF139DD32596A3BC0099EA5E /* CustomErrors.swift */,
 				EF8415DE2597CC7900E0FE4A /* UIHelper.swift */,
 				EF5D331C259803BE00F82B9F /* WelcomeMessages.swift */,
@@ -194,7 +195,6 @@
 		EF18A0522596557E00DE91B2 /* NewTasksApp */ = {
 			isa = PBXGroup;
 			children = (
-				EFCA743D25DAE4B9007E461A /* Extensions */,
 				EF139DD22596A3AD0099EA5E /* Utilites */,
 				EF139DC925969AE10099EA5E /* Manager */,
 				EF18A0CB25966C0300DE91B2 /* Model */,
