@@ -249,12 +249,12 @@
 			isa = PBXGroup;
 			children = (
 				EFCA743125DAE24F007E461A /* TabBar Controller */,
-				EF6044662598B01E002B440C /* TextViews */,
 				EF18A0D425967B8A00DE91B2 /* Cells */,
-				EF18A0AD2596637900DE91B2 /* ViewControllers */,
-				EF18A0A42596601B00DE91B2 /* Labels */,
+				EF6044662598B01E002B440C /* TextViews */,
 				EF18A09625965B7300DE91B2 /* Text Fields */,
+				EF18A0A42596601B00DE91B2 /* Labels */,
 				EF18A09525965B6E00DE91B2 /* Buttons */,
+				EF18A0AD2596637900DE91B2 /* ViewControllers */,
 			);
 			path = "Custom Views";
 			sourceTree = "<group>";
